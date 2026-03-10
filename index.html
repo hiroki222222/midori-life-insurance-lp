@@ -2,1363 +2,1284 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>soynemu — 大豆由来の、やさしい眠り</title>
-<meta name="description" content="大豆たんぱく質から生まれた人肌まくら。化学素材に頼らない、しなやかな眠りへ。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みどり生命保険 | あなたと家族の安心を、まっすぐに。</title>
+<meta name="description" content="みどり生命保険は、お年寄りやそのご家族に寄り添う保険商品を提供しています。医療保険・終身保険・がん保険など、暮らしの安心をサポートします。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@300;400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   TOKENS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-:root {
-  --c-ivory:   #F6EFE3;
-  --c-cream:   #EDE1CC;
-  --c-linen:   #E0CEB4;
-  --c-tan:     #C8A87C;
-  --c-soy:     #A07848;
-  --c-earth:   #6B4A2A;
-  --c-dark:    #2E1F10;
-  --c-sage:    #7A9468;
-  --c-moss:    #506842;
-  --c-mist:    #B0C4A4;
-
-  --f-display: 'Playfair Display', 'Shippori Mincho', serif;
-  --f-ja:      'Shippori Mincho', serif;
-  --f-ui:      'DM Sans', sans-serif;
-
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   RESET + BASE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+:root {
+  --green-50: #f0f9f0;
+  --green-100: #dcf0dc;
+  --green-200: #b8e0b8;
+  --green-300: #7cc67c;
+  --green-400: #5cb85c;
+  --green-500: #4a9f4a;
+  --green-600: #3d8b3d;
+  --green-700: #2d6e2d;
+  --green-800: #1f4f1f;
+  --green-900: #143614;
+
+  --warm-50: #fefcf8;
+  --warm-100: #fdf6e8;
+  --warm-200: #f5ead0;
+
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e8e8e8;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+  --radius: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
-  background: var(--c-ivory);
-  color: var(--c-dark);
-  font-family: var(--f-ja);
-  max-width: 960px;
-  margin: 0 auto;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  color: var(--gray-800);
+  line-height: 1.7;
+  background: var(--white);
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
-/* ── Noise overlay ── */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 9999;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SCROLL ANIMATION BASE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.reveal {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Numbers & English */
+.num, .en {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== ANIMATION ===== */
+.fade-up {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.22s; }
-.reveal-delay-3 { transition-delay: 0.36s; }
-.reveal-delay-4 { transition-delay: 0.5s; }
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   HERO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.hero {
-  position: relative;
-  min-height: 100svh;
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gray-200);
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--green-600);
+}
+.header-logo .logo-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--green-500);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background: linear-gradient(168deg, #F0E7D5 0%, #E8D9BE 55%, #DCCBA8 100%);
-  padding: 80px 40px 100px;
-  text-align: center;
+  color: var(--white);
 }
-
-/* Ambient blobs */
-.hero__blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  pointer-events: none;
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
 }
-.hero__blob--a {
-  width: 420px; height: 420px;
-  background: radial-gradient(ellipse, rgba(122,148,104,0.18), transparent 70%);
-  top: -80px; right: -100px;
-  animation: blobDrift 12s ease-in-out infinite alternate;
-}
-.hero__blob--b {
-  width: 300px; height: 300px;
-  background: radial-gradient(ellipse, rgba(200,168,124,0.22), transparent 70%);
-  bottom: 0; left: -60px;
-  animation: blobDrift 9s ease-in-out infinite alternate-reverse;
-}
-@keyframes blobDrift {
-  from { transform: translate(0,0) scale(1); }
-  to   { transform: translate(20px,30px) scale(1.12); }
-}
-
-.hero__eyebrow {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 11px;
-  letter-spacing: 6px;
-  color: var(--c-moss);
-  text-transform: uppercase;
-  margin-bottom: 56px;
+.header-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: color 0.2s;
   position: relative;
-  z-index: 1;
-  animation: heroFadeUp 1.2s var(--ease-out-expo) both;
 }
-
-/* Central orb / pillow sculpture */
-.hero__orb {
-  position: relative;
-  width: 220px; height: 220px;
-  margin: 0 auto 52px;
-  z-index: 1;
-  animation: heroFadeUp 1.2s var(--ease-out-expo) 0.15s both;
+.header-nav a:hover {
+  color: var(--green-600);
 }
-.hero__orb-ring {
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  border: 1px solid rgba(160,120,72,0.2);
-  animation: ringPulse 4s ease-in-out infinite;
-}
-.hero__orb-ring--2 {
-  inset: -40px;
-  border-color: rgba(160,120,72,0.1);
-  animation-delay: 0.5s;
-}
-@keyframes ringPulse {
-  0%,100% { transform: scale(1); opacity:1; }
-  50%      { transform: scale(1.04); opacity:0.5; }
-}
-.hero__orb-body {
-  width: 100%; height: 100%;
-  border-radius: 42% 58% 54% 46% / 48% 52% 48% 52%;
-  background:
-    radial-gradient(ellipse at 38% 32%, rgba(255,248,236,0.7) 0%, transparent 50%),
-    linear-gradient(145deg, #EDD9BB 0%, #C8A87C 50%, #9B6E3A 100%);
-  box-shadow:
-    0 24px 64px rgba(107,74,42,0.28),
-    inset 0 12px 28px rgba(255,248,236,0.4),
-    inset 0 -8px 20px rgba(107,74,42,0.15);
-  animation: orbFloat 7s ease-in-out infinite;
-}
-@keyframes orbFloat {
-  0%,100% { transform: translateY(0) rotate(-3deg) scale(1); border-radius: 42% 58% 54% 46% / 48% 52% 48% 52%; }
-  33%     { transform: translateY(-14px) rotate(2deg) scale(1.02); border-radius: 58% 42% 46% 54% / 52% 48% 52% 48%; }
-  66%     { transform: translateY(-7px) rotate(-1deg) scale(0.99); border-radius: 46% 54% 58% 42% / 50% 50% 48% 52%; }
-}
-
-.hero__title {
-  font-family: var(--f-display);
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(28px, 8vw, 38px);
-  line-height: 1.55;
-  color: var(--c-earth);
-  margin-bottom: 16px;
-  z-index: 1;
-  position: relative;
-  animation: heroFadeUp 1.2s var(--ease-out-expo) 0.3s both;
-}
-.hero__title em {
-  font-style: normal;
-  color: var(--c-dark);
-  display: block;
-  font-size: 0.9em;
-}
-
-.hero__sub {
-  font-family: var(--f-ui);
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 4px;
-  color: var(--c-soy);
-  margin-bottom: 56px;
-  z-index: 1;
-  position: relative;
-  animation: heroFadeUp 1.2s var(--ease-out-expo) 0.4s both;
-  text-transform: uppercase;
-}
-
-.hero__cta {
+.header-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 18px 40px;
-  background: var(--c-earth);
-  color: var(--c-cream);
-  border-radius: 60px;
-  font-family: var(--f-ui);
-  font-weight: 300;
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-decoration: none;
-  z-index: 1;
-  position: relative;
-  animation: heroFadeUp 1.2s var(--ease-out-expo) 0.55s both;
-  box-shadow: 0 12px 40px rgba(107,74,42,0.3);
-  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s;
-  cursor: pointer;
+  gap: 6px;
+  background: var(--green-500);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius);
   border: none;
-  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-.hero__cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 50px rgba(107,74,42,0.35);
-}
-.hero__cta-arrow {
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  border: 1px solid rgba(237,225,204,0.4);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px;
+.header-cta-btn:hover {
+  background: var(--green-600);
 }
 
-@keyframes heroFadeUp {
-  from { opacity:0; transform: translateY(30px); }
-  to   { opacity:1; transform: translateY(0); }
+/* Mobile menu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-700);
 }
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+}
+.mobile-nav.open { display: block; }
+.mobile-nav a {
+  display: block;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gray-700);
+  border-bottom: 1px solid var(--gray-100);
+}
+.mobile-nav a:last-child { border-bottom: none; }
 
-.hero__scroll {
-  position: absolute;
-  bottom: 32px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  z-index: 1;
-  animation: heroFadeUp 1s var(--ease-out-expo) 1.2s both;
-}
-.hero__scroll span {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 8px;
-  letter-spacing: 4px;
-  color: var(--c-soy);
-  text-transform: uppercase;
-}
-.hero__scroll-bar {
-  width: 1px; height: 50px;
-  background: linear-gradient(var(--c-tan), transparent);
-  animation: scrollDown 2.2s ease-in-out infinite;
-  transform-origin: top;
-}
-@keyframes scrollDown {
-  0%   { transform: scaleY(0); opacity:0; }
-  40%  { transform: scaleY(1); opacity:1; }
-  100% { transform: scaleY(1); opacity:0; transform-origin: bottom; }
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   TICKER BAND
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.ticker {
-  background: var(--c-moss);
-  padding: 18px 0;
+/* ===== HERO ===== */
+.hero {
+  margin-top: 72px;
+  position: relative;
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--warm-50) 50%, var(--green-100) 100%);
   overflow: hidden;
+  padding: 80px 0 60px;
+}
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.hero-content {
+  flex: 1;
+  min-width: 0;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-100);
+  color: var(--green-700);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--gray-900);
+  margin-bottom: 18px;
   white-space: nowrap;
 }
-.ticker__inner {
-  display: inline-flex;
-  animation: ticker 22s linear infinite;
+.hero-title .accent {
+  color: var(--green-600);
 }
-.ticker__item {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 10px;
-  letter-spacing: 5px;
-  color: rgba(246,239,227,0.75);
-  text-transform: uppercase;
-  padding: 0 28px;
-}
-.ticker__dot {
-  color: rgba(246,239,227,0.3);
-  font-size: 5px;
-  vertical-align: middle;
-}
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   COMMON SECTION STYLES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.section { padding: 100px 48px; }
-.section--cream  { background: var(--c-cream); }
-.section--linen  { background: var(--c-linen); }
-.section--dark   { background: var(--c-dark); color: var(--c-ivory); }
-.section--moss   { background: var(--c-moss); color: var(--c-ivory); }
-
-.label {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: 5px;
-  color: var(--c-sage);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 36px;
-}
-.label::after {
-  content: '';
-  height: 1px;
-  width: 48px;
-  background: linear-gradient(to right, var(--c-sage), transparent);
-}
-
-.headline {
-  font-family: var(--f-display);
-  font-weight: 400;
-}
-.headline--xl {
-  font-size: clamp(26px, 7vw, 34px);
-  line-height: 1.5;
-  font-style: italic;
-}
-.headline--lg {
-  font-size: clamp(22px, 6vw, 28px);
-  line-height: 1.55;
-  font-style: italic;
-}
-
-.body-text {
-  font-size: 13.5px;
-  line-height: 2.3;
-  color: var(--c-soy);
-  font-weight: 300;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   CONCEPT SECTION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.concept { background: var(--c-ivory); padding: 100px 48px; }
-
-.concept__bg-text {
-  position: absolute;
-  font-family: var(--f-display);
-  font-size: 140px;
-  font-weight: 500;
-  color: var(--c-cream);
-  top: 0; right: -20px;
-  pointer-events: none;
-  line-height: 1;
-  letter-spacing: -6px;
-  user-select: none;
-}
-
-.concept__wrap { position: relative; }
-
-.concept__lead {
-  font-family: var(--f-display);
-  font-size: clamp(24px, 7vw, 32px);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.55;
-  color: var(--c-earth);
-  margin-bottom: 36px;
-}
-
-.concept__rule {
-  width: 36px; height: 2px;
-  background: var(--c-sage);
-  border-radius: 1px;
-  margin: 40px 0;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   PRODUCT SECTION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.product { background: var(--c-cream); padding: 0; }
-
-.product__visual {
-  width: 100%;
-  height: 340px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(160deg, #E8D9BE, #D4BC98);
-}
-
-.product__pillow {
-  position: relative;
-  width: 300px; height: 210px;
-}
-.product__pillow-body {
-  width: 100%; height: 100%;
-  border-radius: 120px / 90px;
-  background:
-    radial-gradient(ellipse at 36% 34%, rgba(255,248,236,0.55) 0%, transparent 50%),
-    linear-gradient(130deg, #F0E0C4 0%, #DCBB8C 45%, #B8894A 100%);
-  box-shadow:
-    0 30px 80px rgba(100,64,28,0.25),
-    inset 0 12px 30px rgba(255,248,236,0.45),
-    inset 0 -10px 24px rgba(100,64,28,0.12);
-  animation: pillowSway 6s ease-in-out infinite;
-}
-.product__pillow-seam {
-  position: absolute;
-  top: 50%; left: 12%; right: 12%;
-  height: 1px;
-  background: rgba(107,74,42,0.12);
-  transform: translateY(-50%);
-}
-.product__pillow-sheen {
-  position: absolute;
-  top: 14%; left: 20%;
-  width: 28%; height: 22%;
-  background: radial-gradient(ellipse, rgba(255,250,240,0.35), transparent 70%);
-  border-radius: 50%;
-  transform: rotate(-18deg);
-}
-.product__shadow {
-  position: absolute;
-  bottom: 28px; left: 50%;
-  transform: translateX(-50%);
-  width: 260px; height: 20px;
-  background: radial-gradient(ellipse, rgba(100,64,28,0.18), transparent 70%);
-  filter: blur(8px);
-}
-@keyframes pillowSway {
-  0%,100% { transform: rotate(-2deg) translateY(0); }
-  50%     { transform: rotate(2deg) translateY(-14px); }
-}
-
-.product__info {
-  padding: 50px 48px 80px;
-}
-.product__tag {
-  display: inline-block;
-  background: var(--c-sage);
-  color: #fff;
-  font-family: var(--f-ui);
-  font-weight: 300;
-  font-size: 9px;
-  letter-spacing: 3px;
-  padding: 5px 14px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.product__name {
-  font-family: var(--f-display);
-  font-size: 48px;
-  font-weight: 400;
-  color: var(--c-earth);
-  letter-spacing: 2px;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.product__name-ja {
-  font-size: 13px;
-  color: var(--c-soy);
-  letter-spacing: 3px;
-  margin-bottom: 30px;
-}
-.product__price {
-  font-family: var(--f-display);
-  font-size: 36px;
-  font-weight: 400;
-  color: var(--c-dark);
-}
-.product__price-note {
-  font-family: var(--f-ui);
-  font-size: 11px;
-  color: var(--c-soy);
-  letter-spacing: 1px;
-  margin-top: 6px;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FEATURES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.features { background: var(--c-ivory); padding: 100px 48px; }
-
-.feature-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.feature-item {
-  padding: 44px 0;
-  border-bottom: 1px solid var(--c-linen);
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 24px;
-  align-items: start;
-}
-.feature-item:last-child { border-bottom: none; }
-
-.feature-num {
-  font-family: var(--f-display);
-  font-size: 42px;
-  font-weight: 400;
-  color: var(--c-linen);
-  line-height: 1;
-  font-style: italic;
-}
-.feature-title {
-  font-family: var(--f-ja);
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--c-dark);
-  margin-bottom: 12px;
-}
-.feature-body {
-  font-size: 13px;
-  line-height: 2.2;
-  color: var(--c-soy);
-  font-weight: 300;
-}
-.feature-chip {
-  display: inline-block;
-  border: 1px solid var(--c-mist);
-  color: var(--c-moss);
-  font-family: var(--f-ui);
-  font-size: 9px;
-  letter-spacing: 2px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  margin-top: 12px;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   MATERIAL (DARK)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.material {
-  background: linear-gradient(158deg, #2A1D0E 0%, #1E1308 100%);
-  color: var(--c-ivory);
-  padding: 100px 48px;
-  position: relative;
-  overflow: hidden;
-}
-.material::before {
-  content: '';
-  position: absolute;
-  top: -120px; right: -120px;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(122,148,104,0.08), transparent 65%);
-  pointer-events: none;
-}
-.material::after {
-  content: '';
-  position: absolute;
-  bottom: -80px; left: -80px;
-  width: 350px; height: 350px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(200,168,124,0.06), transparent 65%);
-  pointer-events: none;
-}
-.material .label { color: var(--c-mist); }
-.material .label::after { background: linear-gradient(to right, var(--c-mist), transparent); }
-.material .body-text { color: var(--c-linen); }
-
-.material__quote {
-  font-family: var(--f-display);
-  font-size: clamp(24px, 7vw, 32px);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--c-cream);
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  margin-top: 56px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-.stat {
-  background: rgba(255,255,255,0.04);
-  padding: 32px 20px;
-  text-align: center;
-}
-.stat__num {
-  font-family: var(--f-display);
-  font-size: 40px;
-  font-weight: 400;
-  color: var(--c-ivory);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.stat__num sup {
-  font-size: 18px;
-  vertical-align: top;
-  margin-top: 8px;
-  display: inline-block;
-}
-.stat__label {
-  font-family: var(--f-ui);
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 2px;
-  color: var(--c-mist);
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SCENE (lifestyle divider)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.scene {
-  background: linear-gradient(165deg, var(--c-linen) 0%, var(--c-tan) 100%);
-  padding: 80px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.scene__text {
-  font-family: var(--f-display);
-  font-size: clamp(18px, 5vw, 24px);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--c-earth);
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-.scene__circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.12;
-}
-.scene__circle--a {
-  width: 400px; height: 400px;
-  background: var(--c-earth);
-  top: -200px; left: 50%;
-  transform: translateX(-50%);
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   HOW TO USE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.howto { background: var(--c-cream); padding: 100px 48px; }
-
-.steps { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
-
-.step {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  gap: 20px;
-  padding: 36px 0;
-  border-bottom: 1px solid rgba(160,120,72,0.15);
-  align-items: start;
-}
-.step:last-child { border-bottom: none; }
-
-.step__num-col { display: flex; flex-direction: column; align-items: center; gap: 0; }
-.step__circle {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--c-tan);
-  background: var(--c-ivory);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--f-display);
-  font-size: 18px;
-  font-style: italic;
-  color: var(--c-soy);
-}
-.step__line {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--c-tan), transparent);
-  margin-top: 6px;
-}
-.step:last-child .step__line { display: none; }
-
-.step__title {
-  font-family: var(--f-ja);
+.hero-desc {
   font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--c-dark);
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-.step__body {
-  font-size: 12.5px;
-  line-height: 2.1;
-  color: var(--c-soy);
-  font-weight: 300;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   VOICE (testimonials)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.voice { background: var(--c-ivory); padding: 100px 48px; }
-
-.voice-list { display: flex; flex-direction: column; gap: 20px; }
-
-.voice-card {
-  background: var(--c-cream);
-  border: 1px solid var(--c-linen);
-  border-radius: 20px;
-  padding: 36px 28px;
-  position: relative;
-}
-.voice-card__q {
-  position: absolute;
-  top: 20px; left: 22px;
-  font-family: var(--f-display);
-  font-size: 72px;
-  color: var(--c-tan);
-  opacity: 0.25;
-  line-height: 1;
-  font-style: italic;
-  pointer-events: none;
-}
-.voice-card__stars { color: var(--c-soy); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
-.voice-card__text {
-  font-size: 13.5px;
-  line-height: 2.05;
-  color: var(--c-soy);
-  font-weight: 300;
-  margin-bottom: 20px;
-  padding-top: 18px;
-}
-.voice-card__author {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--c-soy);
-  text-transform: uppercase;
-  opacity: 0.7;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SPEC TABLE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.spec { background: var(--c-linen); padding: 100px 48px; }
-
-.spec-table { width: 100%; border-collapse: collapse; }
-.spec-table tr { border-bottom: 1px solid rgba(107,74,42,0.12); }
-.spec-table tr:last-child { border-bottom: none; }
-.spec-table td {
-  padding: 20px 0;
-  font-size: 13px;
   line-height: 1.8;
-  vertical-align: top;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+  max-width: 480px;
 }
-.spec-table td:first-child {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--c-moss);
-  text-transform: uppercase;
-  width: 34%;
-  padding-right: 24px;
-  padding-top: 22px;
+.hero-desc span {
+  display: inline-block;
 }
-.spec-table td:last-child {
-  color: var(--c-earth);
-  font-weight: 300;
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 48px;
 }
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FAQ
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.faq { background: var(--c-ivory); padding: 100px 48px; }
-
-.faq-list { display: flex; flex-direction: column; }
-.faq-item {
-  border-bottom: 1px solid var(--c-linen);
-  padding: 28px 0;
-  cursor: pointer;
-}
-.faq-item:last-child { border-bottom: none; }
-.faq-q {
-  display: flex; align-items: flex-start; gap: 16px;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--c-dark);
-  line-height: 1.6;
-  margin-bottom: 0;
-  transition: color 0.2s;
-}
-.faq-q-icon {
-  font-family: var(--f-display);
-  font-size: 22px;
-  font-style: italic;
-  color: var(--c-sage);
-  flex-shrink: 0;
-  line-height: 1.2;
-}
-.faq-a {
-  display: none;
-  padding: 16px 0 0 38px;
-  font-size: 13px;
-  line-height: 2.1;
-  color: var(--c-soy);
-  font-weight: 300;
-}
-.faq-item.open .faq-a { display: block; }
-.faq-item.open .faq-q { color: var(--c-soy); }
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   CTA
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.cta {
-  background: linear-gradient(155deg, #4A2E14 0%, #2A1608 100%);
-  padding: 110px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.cta__glow {
-  position: absolute;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(122,148,104,0.1), transparent 65%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.cta__label {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: 6px;
-  color: var(--c-mist);
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  position: relative; z-index: 1;
-}
-.cta__headline {
-  font-family: var(--f-display);
-  font-size: clamp(28px, 8vw, 38px);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--c-ivory);
-  margin-bottom: 20px;
-  position: relative; z-index: 1;
-}
-.cta__sub {
-  font-size: 13px;
-  line-height: 2.1;
-  color: var(--c-linen);
-  font-weight: 300;
-  margin-bottom: 56px;
-  position: relative; z-index: 1;
-  opacity: 0.8;
-}
-.cta__price-box {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
-  padding: 32px 28px;
-  margin-bottom: 28px;
-  position: relative; z-index: 1;
-}
-.cta__price-label {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: 4px;
-  color: var(--c-mist);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.cta__price {
-  font-family: var(--f-display);
-  font-size: 50px;
-  font-weight: 400;
-  color: var(--c-ivory);
-  line-height: 1;
-}
-.cta__price-note {
-  font-family: var(--f-ui);
-  font-size: 11px;
-  color: var(--c-linen);
-  margin-top: 8px;
-  opacity: 0.6;
-  letter-spacing: 1px;
-}
-.btn {
-  display: block;
-  width: 100%;
-  padding: 22px;
-  border-radius: 60px;
-  font-family: var(--f-ui);
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-align: center;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-500);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius);
   border: none;
   cursor: pointer;
-  position: relative; z-index: 1;
-  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s;
+  transition: background 0.2s, transform 0.15s;
 }
-.btn:hover { transform: translateY(-2px); }
-.btn--primary {
-  background: linear-gradient(135deg, var(--c-tan), var(--c-soy));
-  color: var(--c-ivory);
-  box-shadow: 0 14px 44px rgba(160,120,72,0.4);
-  margin-bottom: 14px;
+.btn-primary:hover {
+  background: var(--green-600);
+  transform: translateY(-1px);
 }
-.btn--primary:hover { box-shadow: 0 20px 56px rgba(160,120,72,0.45); }
-.btn--outline {
-  background: transparent;
-  color: var(--c-linen);
-  border: 1px solid rgba(255,255,255,0.2);
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--green-600);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: 2px solid var(--green-300);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
 }
-.cta__trust {
-  margin-top: 28px;
-  padding: 18px 20px;
-  background: rgba(122,148,104,0.1);
-  border-radius: 10px;
-  font-family: var(--f-ui);
-  font-weight: 300;
-  font-size: 11px;
-  color: var(--c-mist);
-  letter-spacing: 1px;
-  line-height: 1.9;
-  position: relative; z-index: 1;
+.btn-outline:hover {
+  background: var(--green-50);
+  border-color: var(--green-500);
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   FOOTER
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-footer {
-  background: var(--c-dark);
-  padding: 56px 48px;
+/* Hero stats */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+.hero-stat {
   text-align: center;
 }
-.footer__brand {
-  font-family: var(--f-display);
-  font-size: 26px;
-  font-style: italic;
-  color: var(--c-cream);
-  letter-spacing: 4px;
-  margin-bottom: 10px;
+.hero-stat-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--green-600);
+  line-height: 1.2;
 }
-.footer__tagline {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: var(--c-soy);
-  text-transform: uppercase;
-  margin-bottom: 36px;
+.hero-stat-num .unit {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 2px;
 }
-.footer__nav {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-.footer__nav a {
-  font-family: var(--f-ui);
-  font-weight: 200;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: rgba(200,168,124,0.5);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.footer__nav a:hover { color: var(--c-tan); }
-.footer__copy {
-  font-family: var(--f-ui);
-  font-size: 9px;
-  color: rgba(200,168,124,0.3);
-  letter-spacing: 1px;
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-top: 4px;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   SVG WAVE DIVIDERS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.wave-div { display: block; line-height: 0; }
+/* Hero image */
+.hero-image {
+  flex: 0 0 440px;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(74,159,74,0.15) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(74,159,74,0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* ===== SECTION COMMON ===== */
+.section {
+  padding: 80px 0;
+}
+.section-alt {
+  background: var(--gray-50);
+}
+.section-green {
+  background: linear-gradient(135deg, var(--green-50), var(--warm-50));
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-500);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.5;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--green-400);
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+.section-subtitle {
+  font-size: 15px;
+  color: var(--gray-500);
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+/* ===== ABOUT ===== */
+.about-grid {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+.about-image {
+  flex: 0 0 420px;
+  height: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-text {
+  flex: 1;
+}
+.about-text h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--gray-900);
+  line-height: 1.5;
+}
+.about-text p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.about-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+.about-feature .icon-circle {
+  width: 28px;
+  height: 28px;
+  background: var(--green-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-600);
+  flex-shrink: 0;
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 32px 24px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: default;
+}
+.service-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.service-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--green-100);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-600);
+  margin-bottom: 18px;
+}
+.service-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+.service-card p {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-600);
+  transition: gap 0.2s;
+}
+.service-link:hover { gap: 8px; }
+
+/* ===== WHY CHOOSE US ===== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.why-card {
+  text-align: center;
+  padding: 28px 16px;
+}
+.why-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--green-300);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.why-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+.why-card p {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ===== PROCESS ===== */
+.process-steps {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+.process-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 12px;
+}
+.process-step-num {
+  width: 48px;
+  height: 48px;
+  background: var(--green-500);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 auto 16px;
+  position: relative;
+  z-index: 2;
+}
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: calc(50% + 30px);
+  width: calc(100% - 60px);
+  height: 2px;
+  background: var(--green-200);
+  z-index: 1;
+}
+.process-step:last-child::after { display: none; }
+.process-step h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+.process-step p {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--green-600), var(--green-500));
+  padding: 64px 0;
+  text-align: center;
+  color: var(--white);
+}
+.cta-section h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.cta-section p {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+.cta-section .btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--green-700);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.cta-section .btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* ===== COMPANY ===== */
+.company-table {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.company-row {
+  display: flex;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 16px 0;
+}
+.company-row dt {
+  flex: 0 0 160px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.company-row dd {
+  flex: 1;
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--green-100);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-600);
+  flex-shrink: 0;
+}
+.contact-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 4px;
+}
+.contact-item p {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--green-400);
+}
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--gray-900);
+  color: var(--gray-400);
+  padding: 48px 0 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--gray-400);
+}
+.footer h4 {
+  color: var(--gray-200);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footer ul li {
+  margin-bottom: 8px;
+}
+.footer ul li a {
+  font-size: 13px;
+  color: var(--gray-400);
+  transition: color 0.2s;
+}
+.footer ul li a:hover {
+  color: var(--green-300);
+}
+.footer-bottom {
+  border-top: 1px solid var(--gray-700);
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+.footer-socials a {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gray-600);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  transition: color 0.2s, border-color 0.2s;
+}
+.footer-socials a:hover {
+  color: var(--green-300);
+  border-color: var(--green-300);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .mobile-menu-btn { display: block; }
+
+  .hero { padding: 48px 0 40px; }
+  .hero .container { flex-direction: column; gap: 32px; }
+  .hero-title {
+    font-size: 24px;
+    white-space: normal;
+  }
+  .hero-desc { font-size: 14px; }
+  .hero-image {
+    flex: none;
+    width: 100%;
+    height: 240px;
+  }
+  .hero-stats { gap: 20px; }
+  .hero-stat-num { font-size: 28px; }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-outline {
+    justify-content: center;
+  }
+
+  .section { padding: 56px 0; }
+  .section-title { font-size: 22px; }
+
+  .about-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .about-image {
+    flex: none;
+    width: 100%;
+    height: 220px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .process-steps {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .process-step::after { display: none; }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .company-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .company-row dt { flex: none; }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- ━━ HERO ━━ -->
-<section class="hero" id="top">
-  <div class="hero__blob hero__blob--a"></div>
-  <div class="hero__blob hero__blob--b"></div>
-
-  <p class="hero__eyebrow">soynemu — Soy-derived human body pillow</p>
-
-  <div class="hero__orb">
-    <div class="hero__orb-ring hero__orb-ring--2"></div>
-    <div class="hero__orb-ring"></div>
-    <div class="hero__orb-body"></div>
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <a href="#" class="header-logo">
+      <span class="logo-icon"><i data-lucide="shield-check" style="width:20px;height:20px;"></i></span>
+      みどり生命
+    </a>
+    <nav class="header-nav">
+      <a href="#about">会社について</a>
+      <a href="#services">保険商品</a>
+      <a href="#why">選ばれる理由</a>
+      <a href="#process">ご加入の流れ</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact">お問い合わせ</a>
+      <button class="header-cta-btn" onclick="location.href='#contact'">
+        <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+        無料相談
+      </button>
+    </nav>
+    <button class="mobile-menu-btn" onclick="toggleMobile()" aria-label="メニュー">
+      <i data-lucide="menu" style="width:24px;height:24px;"></i>
+    </button>
   </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobile()">会社について</a>
+  <a href="#services" onclick="closeMobile()">保険商品</a>
+  <a href="#why" onclick="closeMobile()">選ばれる理由</a>
+  <a href="#process" onclick="closeMobile()">ご加入の流れ</a>
+  <a href="#company" onclick="closeMobile()">会社概要</a>
+  <a href="#contact" onclick="closeMobile()">お問い合わせ</a>
+</nav>
 
-  <h1 class="hero__title">
-    大豆由来の、
-    <em>やさしい眠り。</em>
-  </h1>
-  <p class="hero__sub">Natural · Sustainable · Skin Friendly</p>
-
-  <button class="hero__cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
-    購入する
-    <span class="hero__cta-arrow">↓</span>
-  </button>
-
-  <div class="hero__scroll">
-    <span>scroll</span>
-    <div class="hero__scroll-bar"></div>
-  </div>
-</section>
-
-<!-- ━━ TICKER ━━ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker__inner">
-    <span class="ticker__item">Natural</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Soy Derived</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Skin Friendly</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Sustainable</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Pure Sleep</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Organic Feel</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Made in Japan</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Natural</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Soy Derived</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Skin Friendly</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Sustainable</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Pure Sleep</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Organic Feel</span><span class="ticker__dot">●</span>
-    <span class="ticker__item">Made in Japan</span><span class="ticker__dot">●</span>
-  </div>
-</div>
-
-<!-- ━━ CONCEPT ━━ -->
-<section class="concept reveal">
-  <div class="concept__wrap">
-    <div class="concept__bg-text" aria-hidden="true">soy</div>
-    <div class="label reveal reveal-delay-1">Concept</div>
-    <p class="concept__lead reveal reveal-delay-2">
-      "植物の力が、<br>眠りをやさしく包む。"
-    </p>
-    <p class="body-text reveal reveal-delay-3">
-      大豆たんぱく質から生まれた繊維が、夜のあなたに寄り添います。<br><br>
-      化学的な加工に頼らず、素材そのものの持つしなやかさと温もりを大切にしたい——<br><br>
-      soynemuは、そんな想いから生まれた人肌まくらです。
-    </p>
-    <div class="concept__rule reveal reveal-delay-4"></div>
-    <p class="body-text reveal" style="font-size:12px;opacity:0.7;">
-      使い込むほどに馴染み、あなただけの「やすらぎの形」に育っていきます。
-    </p>
-  </div>
-</section>
-
-<!-- ━━ PRODUCT ━━ -->
-<section class="product reveal">
-  <div class="product__visual">
-    <div class="product__shadow"></div>
-    <div class="product__pillow">
-      <div class="product__pillow-body"></div>
-      <div class="product__pillow-seam"></div>
-      <div class="product__pillow-sheen"></div>
-    </div>
-  </div>
-  <div class="product__info">
-    <span class="product__tag reveal reveal-delay-1">New Arrival 2025</span>
-    <div class="product__name reveal reveal-delay-2">soynemu</div>
-    <div class="product__name-ja reveal reveal-delay-2">大豆由来 人肌まくら</div>
-    <div class="product__price reveal reveal-delay-3">¥14,800<span style="font-size:20px;"> 〜</span></div>
-    <div class="product__price-note reveal reveal-delay-3">税込 · 全国送料無料</div>
-  </div>
-</section>
-
-<!-- ━━ FEATURES ━━ -->
-<section class="features reveal">
-  <div class="label">Features</div>
-  <div class="feature-grid">
-    <div class="feature-item reveal reveal-delay-1">
-      <div class="feature-num">01</div>
-      <div>
-        <h3 class="feature-title">大豆たんぱく質繊維の<br>やさしい肌触り</h3>
-        <p class="feature-body">
-          大豆から抽出したたんぱく質を紡いだ繊維は、カシミヤに近い滑らかさを持ちながら、肌への刺激が少ない素材です。敏感肌の方にも安心してお使いいただけます。
-        </p>
-        <span class="feature-chip">Soft Touch</span>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">
+        <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+        安心と信頼の保険パートナー
       </div>
-    </div>
-    <div class="feature-item reveal reveal-delay-2">
-      <div class="feature-num">02</div>
-      <div>
-        <h3 class="feature-title">体温に寄り添う<br>自然な温もり</h3>
-        <p class="feature-body">
-          大豆繊維が持つ優れた吸放湿性が、睡眠中の体温変化に合わせて自然に調整。むれにくく、夏は涼しく冬は温かな睡眠環境を保ちます。
-        </p>
-        <span class="feature-chip">Thermo Regulate</span>
-      </div>
-    </div>
-    <div class="feature-item reveal reveal-delay-3">
-      <div class="feature-num">03</div>
-      <div>
-        <h3 class="feature-title">人体工学に基づいた<br>しなやかなフォルム</h3>
-        <p class="feature-body">
-          腕・首・背中を自然な姿勢でやさしく支える独自設計。横向き寝・仰向けどちらにもフィットし、睡眠中の体への負担を軽減します。
-        </p>
-        <span class="feature-chip">Ergonomic Design</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ━━ MATERIAL ━━ -->
-<section class="material reveal">
-  <div class="label">Material</div>
-  <p class="material__quote reveal reveal-delay-1">
-    "大豆は、古くから<br>人を育んできた植物。"
-  </p>
-  <p class="body-text reveal reveal-delay-2" style="color:var(--c-linen);position:relative;z-index:1;">
-    大豆たんぱく質繊維（ソイ繊維）は、食品加工後の大豆かすを原料としたサステナブルな天然素材。石油由来の合成繊維を使わず、地球にも、肌にも、やさしい選択です。
-  </p>
-  <div class="stats reveal reveal-delay-3">
-    <div class="stat">
-      <div class="stat__num">97<sup>%</sup></div>
-      <div class="stat__label">天然素材使用率</div>
-    </div>
-    <div class="stat">
-      <div class="stat__num">0</div>
-      <div class="stat__label">有害化学物質</div>
-    </div>
-    <div class="stat">
-      <div class="stat__num">∞</div>
-      <div class="stat__label">繰り返し洗濯可</div>
-    </div>
-    <div class="stat">
-      <div class="stat__num">🌿</div>
-      <div class="stat__label">OEKO-TEX® 準拠</div>
-    </div>
-  </div>
-</section>
-
-<!-- ━━ SCENE ━━ -->
-<div class="scene reveal">
-  <div class="scene__circle scene__circle--a"></div>
-  <p class="scene__text">
-    "夜、ただそっと抱きしめる。<br>
-    それだけで、眠れる気がした。"
-  </p>
-</div>
-
-<!-- ━━ HOW TO USE ━━ -->
-<section class="howto reveal">
-  <div class="label">使い方</div>
-  <div class="steps">
-    <div class="step reveal reveal-delay-1">
-      <div class="step__num-col">
-        <div class="step__circle">1</div>
-        <div class="step__line"></div>
-      </div>
-      <div>
-        <h3 class="step__title">カバーをはずして<br>ふわっと広げる</h3>
-        <p class="step__body">素材を傷めないよう、カバーは取り外して洗濯機へ。本体はやさしく形を整えてください。</p>
-      </div>
-    </div>
-    <div class="step reveal reveal-delay-2">
-      <div class="step__num-col">
-        <div class="step__circle">2</div>
-        <div class="step__line"></div>
-      </div>
-      <div>
-        <h3 class="step__title">好みの位置に<br>セットする</h3>
-        <p class="step__body">抱き枕として、横向き寝のサポートとして、または足の間に挟んで使うなど、自分のスタイルに合わせて自由に。</p>
-      </div>
-    </div>
-    <div class="step reveal reveal-delay-3">
-      <div class="step__num-col">
-        <div class="step__circle">3</div>
-      </div>
-      <div>
-        <h3 class="step__title">自分だけの「馴染み」を<br>育てていく</h3>
-        <p class="step__body">使うほどに体に馴染んでいく素材感がsoynemuの醍醐味。毎晩の眠りの中で、あなたの形になっていきます。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ━━ VOICE ━━ -->
-<section class="voice reveal">
-  <div class="label">お客様の声</div>
-  <div class="voice-list">
-    <div class="voice-card reveal reveal-delay-1">
-      <div class="voice-card__q">"</div>
-      <div class="voice-card__stars">★★★★★</div>
-      <p class="voice-card__text">
-        肌が弱くて合成素材が苦手だったのですが、これは全然違いました。本当にやさしい触り心地で、毎晩抱いて眠るのが楽しみになっています。
+      <h1 class="hero-title">あなたと家族の<span class="accent">安心</span>を、<br class="sp-only">まっすぐに届ける。</h1>
+      <p class="hero-desc">
+        <span>みどり生命は、シニア世代とそのご家族に寄り添い、わかりやすく安心できる保険をお届けします。</span>
+        <span>お一人おひとりのライフステージに合わせた最適なプランをご提案いたします。</span>
       </p>
-      <div class="voice-card__author">M.K. · 30代 女性</div>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="location.href='#services'">
+          <i data-lucide="search" style="width:16px;height:16px;"></i>
+          保険商品を探す
+        </button>
+        <button class="btn-outline" onclick="location.href='#contact'">
+          <i data-lucide="phone" style="width:16px;height:16px;"></i>
+          無料相談はこちら
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">50<span class="unit">万件</span></div>
+          <div class="hero-stat-label">累計ご契約数</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">98.5<span class="unit">%</span></div>
+          <div class="hero-stat-label">お客様満足度</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">35<span class="unit">年</span></div>
+          <div class="hero-stat-label">業界実績</div>
+        </div>
+      </div>
     </div>
-    <div class="voice-card reveal reveal-delay-2">
-      <div class="voice-card__q">"</div>
-      <div class="voice-card__stars">★★★★★</div>
-      <p class="voice-card__text">
-        「大豆から作った枕」と聞いて半信半疑でしたが、実際に触れてみてその質感に驚きました。サステナブルな選択ができているのも嬉しいです。
-      </p>
-      <div class="voice-card__author">T.S. · 40代 男性</div>
-    </div>
-    <div class="voice-card reveal reveal-delay-3">
-      <div class="voice-card__q">"</div>
-      <div class="voice-card__stars">★★★★☆</div>
-      <p class="voice-card__text">
-        横向き寝が多いのですが、腕の置き場所が自然に定まって肩のこりが減った気がします。もっと早く買えばよかったと思っています。
-      </p>
-      <div class="voice-card__author">A.H. · 20代 女性</div>
+    <div class="hero-image fade-up" style="transition-delay:0.15s;">
+      <img src="/images/hero-family.jpg" alt="日本の三世代家族が笑顔でくつろぐ様子">
     </div>
   </div>
 </section>
 
-<!-- ━━ SPEC ━━ -->
-<section class="spec reveal">
-  <div class="label">仕様</div>
-  <table class="spec-table">
-    <tr>
-      <td>素材</td>
-      <td>大豆たんぱく質繊維 70%<br>オーガニックコットン 27%<br>その他 3%</td>
-    </tr>
-    <tr>
-      <td>サイズ</td>
-      <td>全長 約160cm<br>胴回り 約30cm</td>
-    </tr>
-    <tr>
-      <td>重量</td>
-      <td>約800g</td>
-    </tr>
-    <tr>
-      <td>カバー</td>
-      <td>取り外し可能<br>洗濯機使用可（ネット推奨）</td>
-    </tr>
-    <tr>
-      <td>原産国</td>
-      <td>日本製</td>
-    </tr>
-    <tr>
-      <td>認証</td>
-      <td>OEKO-TEX® 準拠素材使用</td>
-    </tr>
-  </table>
-</section>
-
-<!-- ━━ FAQ ━━ -->
-<section class="faq reveal">
-  <div class="label">よくある質問</div>
-  <div class="faq-list">
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">
-        <span class="faq-q-icon">Q</span>
-        <span>大豆アレルギーがありますが使えますか？</span>
-      </div>
-      <div class="faq-a">
-        大豆たんぱく質を精製した繊維のため、食物アレルギーの反応とは異なりますが、敏感な方は皮膚科専門医にご相談のうえご使用ください。
-      </div>
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label en">About Us</div>
+      <h2 class="section-title">みどり生命について</h2>
+      <p class="section-subtitle"><span style="display:inline-block;">私たちは、すべてのお客様の暮らしと未来に安心をお届けすることを使命としています。</span></p>
     </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">
-        <span class="faq-q-icon">Q</span>
-        <span>洗濯方法を教えてください。</span>
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <img src="/images/about-consultation.jpg" alt="保険アドバイザーがシニアのお客様と相談する様子">
       </div>
-      <div class="faq-a">
-        カバーはネットに入れて洗濯機使用可。本体はカバーをつけたまま陰干し推奨です。中材を洗う場合は手洗いまたはドライクリーニングをご利用ください。
-      </div>
-    </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">
-        <span class="faq-q-icon">Q</span>
-        <span>返品・交換は可能ですか？</span>
-      </div>
-      <div class="faq-a">
-        到着後7日以内・未使用未開封に限り返品・交換を承ります。睡眠用品の性質上、開封後のご返品はお受けできません。
-      </div>
-    </div>
-    <div class="faq-item" onclick="this.classList.toggle('open')">
-      <div class="faq-q">
-        <span class="faq-q-icon">Q</span>
-        <span>妊娠中・産後でも使えますか？</span>
-      </div>
-      <div class="faq-a">
-        天然由来素材のため多くの方にご使用いただいていますが、妊娠中・産後の使用については主治医にご相談ください。
+      <div class="about-text fade-up" style="transition-delay:0.1s;">
+        <h3>お客様の声に耳を傾け、<br>最適な安心をお届けします</h3>
+        <p>みどり生命は創業以来、シニア世代とそのご家族の「もしも」に備える保険商品を提供してまいりました。複雑になりがちな保険の仕組みをわかりやすくご説明し、納得のいく保障選びをサポートいたします。</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <span class="icon-circle"><i data-lucide="check" style="width:14px;height:14px;"></i></span>
+            全国200拠点以上の相談窓口
+          </div>
+          <div class="about-feature">
+            <span class="icon-circle"><i data-lucide="check" style="width:14px;height:14px;"></i></span>
+            専任アドバイザーによる丁寧なサポート
+          </div>
+          <div class="about-feature">
+            <span class="icon-circle"><i data-lucide="check" style="width:14px;height:14px;"></i></span>
+            シニア世代に特化した商品設計
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━ CTA ━━ -->
-<section class="cta reveal" id="order">
-  <div class="cta__glow"></div>
-  <p class="cta__label reveal">Order Now</p>
-  <h2 class="cta__headline reveal reveal-delay-1">
-    今夜から、<br>大豆のやさしさと<br>眠りにつく。
-  </h2>
-  <p class="cta__sub reveal reveal-delay-2">
-    肌に触れるものだから、素材にこだわりたい。<br>
-    soynemuは、そんな選択に応えます。
-  </p>
-  <div class="cta__price-box reveal reveal-delay-2">
-    <div class="cta__price-label">Standard</div>
-    <div class="cta__price">¥14,800</div>
-    <div class="cta__price-note">税込 · 全国送料無料 · 即日発送</div>
-  </div>
-  <button class="btn btn--primary reveal reveal-delay-3">購入する — soynemu を試す</button>
-  <button class="btn btn--outline reveal reveal-delay-4">詳細・お問い合わせ</button>
-  <div class="cta__trust reveal">
-    🌿 OEKO-TEX® 準拠素材 &nbsp;|&nbsp; 日本製 &nbsp;|&nbsp; 7日間返品保証
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label en">Products</div>
+      <h2 class="section-title">保険商品のご案内</h2>
+      <p class="section-subtitle"><span style="display:inline-block;">ライフステージやお悩みに合わせた多彩な保険商品をご用意しています。</span></p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i data-lucide="heart-pulse" style="width:24px;height:24px;"></i></div>
+        <h3>医療保険</h3>
+        <p>入院・手術に備える安心の医療保障。持病をお持ちの方もご加入いただける引受基準緩和型もございます。</p>
+        <a href="#" class="service-link">詳しくみる <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.1s;">
+        <div class="service-icon"><i data-lucide="shield" style="width:24px;height:24px;"></i></div>
+        <h3>終身保険</h3>
+        <p>一生涯の保障で、ご家族の将来を支えます。貯蓄性のあるプランも充実しており、資産形成にも活用いただけます。</p>
+        <a href="#" class="service-link">詳しくみる <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.2s;">
+        <div class="service-icon"><i data-lucide="ribbon" style="width:24px;height:24px;"></i></div>
+        <h3>がん保険</h3>
+        <p>がんと診断されたときの経済的負担を軽減。一時金・通院保障など、治療の段階に応じた手厚いサポートをご提供します。</p>
+        <a href="#" class="service-link">詳しくみる <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><i data-lucide="umbrella" style="width:24px;height:24px;"></i></div>
+        <h3>死亡保険</h3>
+        <p>万が一のときに大切なご家族を経済的に守ります。定期型・終身型など、ニーズに合わせた選択肢をご提案します。</p>
+        <a href="#" class="service-link">詳しくみる <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.1s;">
+        <div class="service-icon"><i data-lucide="wallet" style="width:24px;height:24px;"></i></div>
+        <h3>個人年金保険</h3>
+        <p>老後の生活資金をしっかり準備。計画的に資産を積み立て、ゆとりあるセカンドライフをサポートいたします。</p>
+        <a href="#" class="service-link">詳しくみる <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.2s;">
+        <div class="service-icon"><i data-lucide="hand-heart" style="width:24px;height:24px;"></i></div>
+        <h3>介護保険</h3>
+        <p>介護が必要になった際の費用負担を軽減。要介護認定時の一時金や月額給付で、ご家族の介護負担をサポートします。</p>
+        <a href="#" class="service-link">詳しくみる <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ━━ FOOTER ━━ -->
-<footer>
-  <div class="footer__brand">soynemu</div>
-  <div class="footer__tagline">大豆由来の、やさしい眠り</div>
-  <nav class="footer__nav">
-    <a href="#">特定商取引法に基づく表記</a>
-    <a href="#">プライバシーポリシー</a>
-    <a href="#">お問い合わせ</a>
-    <a href="#">Instagram</a>
-  </nav>
-  <p class="footer__copy">© 2025 soynemu. All rights reserved.</p>
+<!-- WHY CHOOSE US -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label en">Why Choose Us</div>
+      <h2 class="section-title">みどり生命が選ばれる理由</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-num">01</div>
+        <h3>わかりやすい説明</h3>
+        <p>専門用語を使わず、図やイラストを交えた丁寧な説明で、初めての方でも安心してご検討いただけます。</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.08s;">
+        <div class="why-num">02</div>
+        <h3>手厚いサポート体制</h3>
+        <p>ご契約後もお電話・訪問でのアフターフォローを実施。給付金の請求手続きもスタッフが丁寧にお手伝いします。</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.16s;">
+        <div class="why-num">03</div>
+        <h3>お手頃な保険料</h3>
+        <p>必要な保障を必要な分だけ。無駄を省いたシンプルな商品設計で、家計に優しい保険料を実現しました。</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.24s;">
+        <div class="why-num">04</div>
+        <h3>迅速な給付対応</h3>
+        <p>書類到着から最短5営業日でのお支払い。Webからの請求手続きにも対応し、スムーズな給付をお約束します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-green" id="process">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label en">Process</div>
+      <h2 class="section-title">ご加入までの流れ</h2>
+      <p class="section-subtitle"><span style="display:inline-block;">簡単4ステップで、お申し込みが完了します。</span></p>
+    </div>
+    <div class="process-steps fade-up">
+      <div class="process-step">
+        <div class="process-step-num">1</div>
+        <h3>無料相談のお申込み</h3>
+        <p>お電話またはWebフォームからお気軽にご予約ください。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">2</div>
+        <h3>ヒアリング</h3>
+        <p>専任アドバイザーがご希望やライフプランを丁寧にお伺いします。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">3</div>
+        <h3>プランのご提案</h3>
+        <p>お客様に最適な保険プランを複数ご提案いたします。</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">4</div>
+        <h3>お申込み・ご契約</h3>
+        <p>ご納得いただけましたら、お申込み手続きへ進みます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-up">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p><span style="display:inline-block;">保険のプロが、あなたとご家族に最適なプランをご提案いたします。</span><span style="display:inline-block;">相談は何度でも無料です。</span></p>
+    <button class="btn-white" onclick="location.href='#contact'">
+      <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+      無料相談を予約する
+    </button>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="section section-alt" id="company">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label en">Company</div>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="company-table fade-up">
+      <dl>
+        <div class="company-row"><dt>会社名</dt><dd>みどり生命保険株式会社</dd></div>
+        <div class="company-row"><dt>設立</dt><dd><span class="num">1990</span>年<span class="num">4</span>月</dd></div>
+        <div class="company-row"><dt>代表取締役</dt><dd>田中 一郎</dd></div>
+        <div class="company-row"><dt>本社所在地</dt><dd>東京都千代田区丸の内<span class="num">1-1-1</span></dd></div>
+        <div class="company-row"><dt>資本金</dt><dd><span class="num">100</span>億円</dd></div>
+        <div class="company-row"><dt>従業員数</dt><dd><span class="num">3,200</span>名（<span class="num">2024</span>年<span class="num">4</span>月時点）</dd></div>
+        <div class="company-row"><dt>事業内容</dt><dd>生命保険業</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label en">Contact</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-subtitle"><span style="display:inline-block;">ご不明な点やご相談がございましたら、お気軽にお問い合わせください。</span></p>
+    </div>
+    <div class="contact-grid fade-up">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i data-lucide="phone" style="width:18px;height:18px;"></i></div>
+          <div>
+            <h4>お電話でのお問い合わせ</h4>
+            <p><span class="num" style="font-size:20px;font-weight:700;color:var(--green-600);">0120-000-123</span></p>
+            <p>受付時間：<span class="num">9:00</span>〜<span class="num">18:00</span>（土日祝を除く）</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i data-lucide="map-pin" style="width:18px;height:18px;"></i></div>
+          <div>
+            <h4>ご来社でのご相談</h4>
+            <p>東京都千代田区丸の内<span class="num">1-1-1</span></p>
+            <p>事前のご予約をお願いいたします。</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i data-lucide="clock" style="width:18px;height:18px;"></i></div>
+          <div>
+            <h4>営業時間</h4>
+            <p>平日 <span class="num">9:00</span>〜<span class="num">18:00</span></p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('お問い合わせありがとうございます。担当者より折り返しご連絡いたします。');">
+        <div class="form-group">
+          <label>お名前</label>
+          <input type="text" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label>メールアドレス</label>
+          <input type="email" placeholder="example@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ種別</label>
+          <select>
+            <option>保険商品について</option>
+            <option>ご契約内容の変更</option>
+            <option>給付金のご請求</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>お問い合わせ内容</label>
+          <textarea placeholder="お問い合わせ内容をご記入ください"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-content:center;">
+          <i data-lucide="send" style="width:16px;height:16px;"></i>
+          送信する
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <i data-lucide="shield-check" style="width:20px;height:20px;color:var(--green-300);"></i>
+          みどり生命
+        </div>
+        <p class="footer-desc">すべてのお客様の暮らしと未来に安心をお届けすることを使命として、誠実な保険サービスを提供してまいります。</p>
+      </div>
+      <div>
+        <h4>保険商品</h4>
+        <ul>
+          <li><a href="#">医療保険</a></li>
+          <li><a href="#">終身保険</a></li>
+          <li><a href="#">がん保険</a></li>
+          <li><a href="#">死亡保険</a></li>
+          <li><a href="#">介護保険</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>企業情報</h4>
+        <ul>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">経営理念</a></li>
+          <li><a href="#">ニュース</a></li>
+          <li><a href="#">採用情報</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>サポート</h4>
+        <ul>
+          <li><a href="#">よくあるご質問</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span class="num">2025</span> みどり生命保険株式会社 All Rights Reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width:14px;height:14px;"></i></a>
+        <a href="#" aria-label="X"><i data-lucide="twitter" style="width:14px;height:14px;"></i></a>
+        <a href="#" aria-label="YouTube"><i data-lucide="youtube" style="width:14px;height:14px;"></i></a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
-// ─── Scroll Reveal ───
-const revealEls = document.querySelectorAll('.reveal');
+// Lucide icons
+lucide.createIcons();
+
+// Mobile menu
+function toggleMobile() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// Intersection Observer for fade-up
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      entry.target.classList.add('is-visible');
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-revealEls.forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
